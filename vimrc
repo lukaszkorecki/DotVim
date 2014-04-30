@@ -14,9 +14,6 @@ syntax on
 set showbreak=$
 set guioptions=eg
 set title
-if("&cm")
-  set cm=blowfish "if X is used, make the encryption strong
-endif
 
 " visual clues for commands and navigation
 set showcmd
@@ -33,7 +30,6 @@ set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
 " search --------------------------------------------------------------------
 set incsearch ignorecase smartcase hlsearch
 :nnoremap <space> :nohlsearch<cr>
-
 
 " No backups ----------------------------------------------------------------
 " Vim crashes so rarely I don't feel like I need these
@@ -215,7 +211,6 @@ autocmd Filetype javascript iabbr deb_ debugger;
 autocmd Filetype java set omnifunc=javacomplete#Complete
 autocmd Filetype java set completefunc=javacomplete#CompleteParamsInfo
 
-
 " other languages and such --------------------------------------------------
 
 " markdown
@@ -253,10 +248,6 @@ vnoremap <leader>B :call gitsurf#FileRange()<CR>
 let g:ctrlp_extensions = ['tag' ]
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
 nnoremap <leader>T :call CtrlPTag()<CR>
-  let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/]\.(vendor)', }
-
-
 
 " fugitive
 noremap <leader>g :Ggrep <cword><CR>
@@ -265,13 +256,7 @@ noremap <leader>g :Ggrep <cword><CR>
 let g:syntastic_auto_loc_lis=1
 let g:syntastic_enable_signs=1
 
-" gist vim
-let g:gist_show_privates=1
-let g:gist_get_multiplefile = 1
-let g:gist_post_private = 1
-
-" Tagbar and ctags
-noremap <leader>t :TagbarToggle<CR>
+" tags
 set tags=./tags,tags,TAGS,ctags,./js.tags,./rb.tags,../project.tags
 
 " Abbreviations  ------------------------------------------------------------
@@ -290,20 +275,6 @@ fun! <SID>StripTrailingWhitespaces()
   call cursor(l, c)
 endfun
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
-
-" quickly switch between absolute and relative line numbers
-" "number" option was set at the beginning of the file
-
-function! NumSwap()
-  if &number
-    set relativenumber
-  else
-    set number
-  endif
-endf
-
-nmap <silent> <leader>r :call NumSwap()<cr>
-vmap <silent> <leader>r :call NumSwap()<cr>gv
 
 function! ConvertHash()
   let @z="xf Pf=df "
