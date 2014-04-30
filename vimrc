@@ -82,6 +82,7 @@ autocmd FileType text setlocal textwidth=78
 
 " use spelling in email and git commit messages
 autocmd FileType mail,gitcommit set spell
+set spellsuggest=10
 
 
 " colors -------------------------------------------------------------------
@@ -250,6 +251,7 @@ vnoremap <leader>B :call gitsurf#FileRange()<CR>
 
 " ctrl-p
 let g:ctrlp_extensions = ['tag' ]
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
 nnoremap <leader>T :call CtrlPTag()<CR>
   let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v[\/]\.(vendor)', }
