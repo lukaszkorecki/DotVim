@@ -1,7 +1,7 @@
 run: pull link
 
 link:
-	ln -s ~/.vim/vimrc ~/.vimrc
+	ln -f -s ~/.vim/vimrc ~/.vimrc
 
 pull:
 	git pull -r
