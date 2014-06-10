@@ -165,7 +165,7 @@ autocmd Filetype ruby iabbr d_ do<CR>end<ESC>O
 autocmd Filetype ruby iabbr d- do \|\|<CR>end<ESC>k$i
 autocmd Filetype ruby iabbr {- { \|A\| }<ESC>FA"_xi
 autocmd Filetype ruby iabbr #- #{}<ESC>"_ci{
-autocmd Filetype ruby iabbr rq- require ""<ESC>i
+autocmd Filetype ruby iabbr rq- require ''<ESC>i
 
 " ERB
 autocmd Filetype eruby iabbr rt+ <% woo %><ESC>Fw<ESC>"_ciw
@@ -281,3 +281,11 @@ function! ConvertHash()
   :normal @z
 endf
 nmap <leader>ch :call ConvertHash()<cr>
+
+function! FixNetrw()
+  set modifiable
+  set number
+  w!
+endf
+
+nmap <leader>w :call FixNetrw()<cr>
