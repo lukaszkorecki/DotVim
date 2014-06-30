@@ -289,3 +289,7 @@ function! FixNetrw()
 endf
 
 nmap <leader>w :call FixNetrw()<cr>
+
+function! SudoWrite()
+  w !sudo tee % >/dev/null
+endf
