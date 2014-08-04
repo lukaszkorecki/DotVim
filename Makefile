@@ -4,7 +4,7 @@ link:
 	ln -f -s ~/.vim/vimrc ~/.vimrc
 
 pull:
-	git pull -r
+	git pull -r -u origin master
 	git submodule update --init
 	git submodule foreach git reset --hard
 	git submodule foreach git checkout master
