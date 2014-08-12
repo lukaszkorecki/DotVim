@@ -180,6 +180,23 @@ autocmd Filetype ruby iabbr cnt- context "" do<CR>end<ESC>?""<ESC>a
 autocmd Filetype ruby iabbr sub- subject "" do<CR>end<ESC>?""<ESC>a
 autocmd Filetype ruby iabbr lt- let : { }<ESC>?:<ESC>a
 
+
+function! RspecInPane()
+  exec "Gcd"
+  let f = expand("%")
+  let cmd = "tmux split-window \"bundle exec rspec " .  shellescape(f) .  ";sh\""
+  silent exec "! ".cmd
+endf
+
+
+function! AllRspecInPane()
+  exec "Gcd"
+  silent exec "! tmux split-window \"bundle exec rspec ;sh\""
+endf
+
+au Filetype ruby map <leader>r :silent call RspecInPane()<cr>
+au Filetype ruby map <leader>R :silent call AllRspecInPane()<cr>
+
 " make rspec stuff part of ruby syntax
 autocmd BufNewFile,BufRead *_spec.rb syn keyword ruby describe
       \ context
@@ -293,3 +310,16 @@ nmap <leader>w :call FixNetrw()<cr>
 function! SudoWrite()
   w !sudo tee % >/dev/null
 endf
+
+
+function! GenTags()
+  :Gcd
+  call system("ctags -R . ")
+endf
+
+
+map <leader>t :call GenTags()<cr>
+
+
+nnoremap <leader>B :call gitsurf#File()<CR>
+vnoremap <leader>B :call gitsurf#FileRange()<CR>
