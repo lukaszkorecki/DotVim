@@ -184,14 +184,14 @@ autocmd Filetype ruby iabbr lt- let : { }<ESC>?:<ESC>a
 function! RspecInPane()
   exec "Gcd"
   let f = expand("%")
-  let cmd = "tmux split-window \"bundle exec rspec " .  shellescape(f) .  ";sh\""
+  let cmd = "tmux split-window \"~/.vim/bin/specrunner.sh " .  shellescape(f) .  "\""
   silent exec "! ".cmd
 endf
 
 
 function! AllRspecInPane()
   exec "Gcd"
-  silent exec "! tmux split-window \"bundle exec rspec ;sh\""
+  silent exec "! tmux split-window \"~/.vim/bin/specrunner.sh "
 endf
 
 au Filetype ruby map <leader>r :silent call RspecInPane()<cr>
