@@ -61,3 +61,6 @@
 [submodule "bundle/vim-markdown"]
 	path = bundle/vim-markdown
 	url = git://github.com/tpope/vim-markdown.git
+[submodule "bundle/vim-puppet"]
+	path = bundle/vim-puppet
+	url = git@github.com:rodjek/vim-puppet.git
