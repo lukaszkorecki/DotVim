@@ -213,6 +213,8 @@ autocmd BufNewFile,BufRead *_spec.rb syn keyword ruby describe
       \ let
 
 
+" Puppet --------------------------------------------------------------------
+au BufNewFile,BufRead  *.pp set ft=puppet
 " Javascript ----------------------------------------------------------------
 " json & javascript
 au BufNewFile,BufRead  *.json set ft=json
