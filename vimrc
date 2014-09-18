@@ -148,7 +148,7 @@ let g:netrw_banner=0
 
 " Ruby -----------------------------------------------------------------------
 " non ruby files which are ruby
-au BufNewFile,BufRead Capfile,Gemfile,Gemfile.lock,Guardfile,Rakefile,*.rake set filetype=ruby
+au BufNewFile,BufRead Procfile,Capfile,Gemfile,Gemfile.lock,Guardfile,Rakefile,*.rake set filetype=ruby
 
 " reject! and responds_to? are methods in ruby
 autocmd FileType ruby setlocal iskeyword+=!,?,@
@@ -184,14 +184,14 @@ autocmd Filetype ruby iabbr lt- let : { }<ESC>?:<ESC>a
 function! RspecInPane()
   exec "Gcd"
   let f = expand("%")
-  let cmd = "tmux split-window \"~/.vim/bin/specrunner.sh " .  shellescape(f) .  "\""
+  let cmd = "tmux split-window \"~/.vim/script/specrunner.sh " .  shellescape(f) .  "\""
   silent exec "! ".cmd
 endf
 
 
 function! AllRspecInPane()
   exec "Gcd"
-  silent exec "! tmux split-window \"~/.vim/bin/specrunner.sh "
+  silent exec "! tmux split-window \"~/.vim/script/specrunner.sh "
 endf
 
 au Filetype ruby map <leader>r :silent call RspecInPane()<cr>
