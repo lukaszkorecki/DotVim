@@ -146,9 +146,13 @@ let g:netrw_banner=0
 
 " Programming language support and improvements ------------------------------
 
+" YAML -----------------------------------------------------------------------
+
+au BufNewFile,BufRead Procfile set filetype=yaml
+
 " Ruby -----------------------------------------------------------------------
 " non ruby files which are ruby
-au BufNewFile,BufRead Procfile,Capfile,Gemfile,Gemfile.lock,Guardfile,Rakefile,*.rake set filetype=ruby
+au BufNewFile,BufRead Capfile,Gemfile,Gemfile.lock,Guardfile,Rakefile,*.rake set filetype=ruby
 
 " reject! and responds_to? are methods in ruby
 autocmd FileType ruby setlocal iskeyword+=!,?,@
