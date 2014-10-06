@@ -270,7 +270,9 @@ vnoremap <leader>B :call gitsurf#FileRange()<CR>
 " ctrl-p
 let g:ctrlp_extensions = ['tag' ]
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
-nnoremap <leader>T :call CtrlPTag()<CR>
+
+" tagbar
+nnoremap <leader>T :TagbarToggle<CR>
 
 " fugitive
 noremap <leader>g :Ggrep <cword><CR>
