@@ -152,7 +152,7 @@ au BufNewFile,BufRead Procfile set filetype=yaml
 
 " Ruby -----------------------------------------------------------------------
 " non ruby files which are ruby
-au BufNewFile,BufRead Capfile,Gemfile,Gemfile.lock,Guardfile,Rakefile,*.rake set filetype=ruby
+au BufNewFile,BufRead Capfile,Gemfile,Guardfile,Rakefile,*.rake set filetype=ruby
 
 " reject! and responds_to? are methods in ruby
 autocmd FileType ruby setlocal iskeyword+=!,?,@
@@ -200,6 +200,19 @@ endf
 
 au Filetype ruby map <leader>r :silent call RspecInPane()<cr>
 au Filetype ruby map <leader>R :silent call AllRspecInPane()<cr>
+
+let g:syntastic_ruby_checkers = ['mri', 'rubocop']
+
+function! RubocopFix()
+  set autoread
+  silent exec "! rubocop -a ".expand('%')
+  redraw!
+  set noautoread
+  e!
+  w
+endf
+
+au Filetype ruby map <leader>f :silent call RubocopFix()<cr>
 
 " make rspec stuff part of ruby syntax
 autocmd BufNewFile,BufRead *_spec.rb syn keyword ruby describe
