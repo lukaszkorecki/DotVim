@@ -52,3 +52,6 @@
 [submodule "tabular"]
 	path = bundle/tabular
 	url = git@github.com:godlygeek/tabular.git
+[submodule "bundle/vim-sparkup"]
+	path = bundle/vim-sparkup
+	url = git@github.com:lukaszkorecki/vim-sparkup.git
