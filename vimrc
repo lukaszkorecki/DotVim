@@ -204,6 +204,7 @@ au Filetype ruby map <leader>R :silent call AllRspecInPane()<cr>
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 
 function! RubocopFix()
+  w!
   set autoread
   silent exec "! rubocop -a ".expand('%')
   redraw!
@@ -347,3 +348,4 @@ map <leader>t :call GenTags()<cr>
 
 nnoremap <leader>B :call gitsurf#File()<CR>
 vnoremap <leader>B :call gitsurf#FileRange()<CR>
+nnoremap <leader>F :redraw!<cr>
