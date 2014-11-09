@@ -247,7 +247,8 @@ autocmd Filetype javascript iabbr cl- console.log('');<ESC>F'i
 autocmd Filetype javascript iabbr ci- console.info('');<ESC>F'i
 autocmd Filetype javascript iabbr deb_ debugger;
 
-" other languages and such --------------------------------------------------
+" coffeescript
+au BufNewFile,BufRead  *.coffee set ft=coffee
 
 " markdown
 au BufNewFile,BufRead  *.md,*.mkd,*.markdown set filetype=markdown
