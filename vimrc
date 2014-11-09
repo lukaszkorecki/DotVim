@@ -55,7 +55,7 @@ set statusline+=%r%=[%{&encoding}\ %{strlen(&ft)?&ft:'none'}]
 set statusline+=\ %12.(%c:%l/%L%)
 
 " always show status line
-set laststatus=2
+set laststatus=1
 
 " backspace mode -----------------------------------------------------------
 set bs=2
@@ -69,7 +69,7 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 " right margin settings
 if version > 702
-  set colorcolumn=80
+  set colorcolumn=78
 endif
 
 " general text layout stuff ------------------------------------------------
@@ -78,7 +78,7 @@ autocmd FileType text setlocal textwidth=78
 
 " use spelling in email and git commit messages
 autocmd FileType mail,gitcommit set spell
-set spellsuggest=10
+set spellsuggest=5
 
 
 " colors -------------------------------------------------------------------
@@ -96,9 +96,6 @@ endif
 set softtabstop=2 shiftwidth=2 tabstop=2 expandtab
 
 " Key mappings -------------------------------------------------------------
-
-" map C-h to esc
-inoremap <c-h> <ESC>
 
 " make the command mode less annoying
 cnoremap <c-a> <Home>
@@ -152,7 +149,7 @@ au BufNewFile,BufRead Procfile set filetype=yaml
 
 " Ruby -----------------------------------------------------------------------
 " non ruby files which are ruby
-au BufNewFile,BufRead Capfile,Gemfile,Guardfile,Rakefile,*.rake set filetype=ruby
+au BufNewFile,BufRead Puppetfile,Capfile,Gemfile,Guardfile,Rakefile,*.rake set filetype=ruby
 
 " reject! and responds_to? are methods in ruby
 autocmd FileType ruby setlocal iskeyword+=!,?,@
@@ -162,13 +159,13 @@ autocmd Filetype ruby iabbr deb_ require 'pry'; binding.pry
 
 " Ruby
 autocmd Filetype ruby iabbr init- def initialize<CR>end<ESC>?initialize<ESC>$a
-autocmd Filetype ruby iabbr cls class<CR>end<ESC>?class<ESC>$a
-autocmd Filetype ruby iabbr mod module<CR>end<ESC>?module<ESC>$a
+autocmd Filetype ruby iabbr cls- class<CR>end<ESC>?class<ESC>$a
+autocmd Filetype ruby iabbr mod- module<CR>end<ESC>?module<ESC>$a
 autocmd Filetype ruby iabbr d= def<CR>end<ESC>?def<ESC>$a
 autocmd Filetype ruby iabbr d_ do<CR>end<ESC>O
 autocmd Filetype ruby iabbr d- do \|\|<CR>end<ESC>k$i
 autocmd Filetype ruby iabbr {- { \|A\| }<ESC>FA"_xi
-autocmd Filetype ruby iabbr #- #{}<ESC>"_ci{
+autocmd Filetype ruby iabbr #- #{}<ESC>'_ci{
 autocmd Filetype ruby iabbr rq- require ''<ESC>i
 
 " ERB
@@ -179,27 +176,29 @@ autocmd Filetype eruby iabbr rtc <%# woo  %><ESC>Fw<ESC>"_ciw
 
 " Rspec yea
 autocmd Filetype ruby iabbr dsc- describe  do<CR>end<ESC>?describe<ESC>wi
-autocmd Filetype ruby iabbr it- it "" do<CR>end<ESC>?""<ESC>a
-autocmd Filetype ruby iabbr cnt- context "" do<CR>end<ESC>?""<ESC>a
-autocmd Filetype ruby iabbr sub- subject "" do<CR>end<ESC>?""<ESC>a
+autocmd Filetype ruby iabbr it- it '' do<CR>end<ESC>?''<ESC>a
+autocmd Filetype ruby iabbr cnt- context '' do<CR>end<ESC>?''<ESC>a
+autocmd Filetype ruby iabbr sub- subject '' do<CR>end<ESC>?''<ESC>a
 autocmd Filetype ruby iabbr lt- let : { }<ESC>?:<ESC>a
 
+" minitest
+autocmd Filetype ruby iabbr test- test '' do<CR>end<ESC>?''<ESC>a
 
 function! RspecInPane()
   exec "Gcd"
   let f = expand("%")
-  let cmd = "tmux split-window \"~/.vim/script/specrunner.sh " .  shellescape(f) .  "\""
+  let cmd = "tmux split-window 'bundle exec rspec ". shellescape(f) . " || bash '"
   silent exec "! ".cmd
 endf
 
 
-function! AllRspecInPane()
+function! TestUnitFile()
   exec "Gcd"
-  silent exec "! tmux split-window \"~/.vim/script/specrunner.sh "
+  silent exec "! tmux split-window 'tu ".expand('%'). " || bash'"
 endf
 
 au Filetype ruby map <leader>r :silent call RspecInPane()<cr>
-au Filetype ruby map <leader>R :silent call AllRspecInPane()<cr>
+au Filetype ruby map <leader>u :silent call TestUnitFile()<cr>
 
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 
@@ -236,6 +235,7 @@ au BufNewFile,BufRead  *.cow set ft=sh
 
 " Puppet --------------------------------------------------------------------
 au BufNewFile,BufRead  *.pp set ft=puppet
+
 " Javascript ----------------------------------------------------------------
 " json & javascript
 au BufNewFile,BufRead  *.json set ft=json
@@ -246,10 +246,6 @@ autocmd Filetype javascript iabbr fn- function(){}<ESC>F(i
 autocmd Filetype javascript iabbr cl- console.log('');<ESC>F'i
 autocmd Filetype javascript iabbr ci- console.info('');<ESC>F'i
 autocmd Filetype javascript iabbr deb_ debugger;
-
-" java ---------------------------------------------------------------------
-autocmd Filetype java set omnifunc=javacomplete#Complete
-autocmd Filetype java set completefunc=javacomplete#CompleteParamsInfo
 
 " other languages and such --------------------------------------------------
 
@@ -266,12 +262,6 @@ au BufNewFile,BufRead *.py,*.go set list listchars=tab:\|\ ,eol:~
 " go specific
 au BufNewFile,BufRead *.go set ft=go
 au BufNewFile,BufRead *.go set noexpandtab
-
-" handlebars templates
-au BufNewFile,BufRead *.hb set ft=handlebars
-
-" tmux
-au BufNewFile,BufRead *tmux.conf set syntax=tmux
 
 " SCSS
 autocmd FileType scss setlocal iskeyword+=-,$,@
@@ -302,12 +292,9 @@ let g:syntastic_enable_signs=1
 set tags=./tags,tags,TAGS,ctags,./js.tags,./rb.tags,../project.tags
 
 " Abbreviations  ------------------------------------------------------------
-" 'cause snippets are overkill
-iabbr me_ Łukasz
-iabbr sig_ -- <CR>Łukasz<CR>http://coffeesounds.com
-iabbr sigw_ -- <CR>Łukasz<CR>http://geckoboard.com
+iabbr me- Łukasz
 
-" Functions ----------------------------------------------------------------
+" Functions and hooks -------------------------------------------------------
 
 fun! <SID>StripTrailingWhitespaces()
   let l = line(".")
@@ -329,7 +316,6 @@ function! FixNetrw()
   set number
   w!
 endf
-
 nmap <leader>w :call FixNetrw()<cr>
 
 function! SudoWrite()
@@ -338,14 +324,9 @@ endf
 
 
 function! GenTags()
-  :Gcd
+  exec "Gcd"
   call system("ctags -R . ")
 endf
-
-
 map <leader>t :call GenTags()<cr>
 
-
-nnoremap <leader>B :call gitsurf#File()<CR>
-vnoremap <leader>B :call gitsurf#FileRange()<CR>
 nnoremap <leader>F :redraw!<cr>
