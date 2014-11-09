@@ -1,12 +1,26 @@
 bundleDir := _bundle
 repos =  \
-	vim-ruby/vim-ruby \
-	altercation/vim-colors-solarized \
 	Shougo/vimproc.vim \
-	kien/ctrlp.vim \
-	rodjek/vim-puppet \
+	altercation/vim-colors-solarized \
+	altercation/vim-colors-solarized \
 	godlygeek/tabular \
-	lukaszkorecki/vim-sparkup
+	jgdavey/vim-blockle \
+	kana/vim-textobj-user \
+	kien/ctrlp.vim \
+	majutsushi/tagbar \
+	mattn/gist-vim \
+	mattn/webapi-vim \
+	nelstrom/vim-textobj-rubyblock \
+	pangloss/vim-javascript \
+	rodjek/vim-puppet \
+	scrooloose/syntastic \
+	tpope/vim-fugitive \
+	tpope/vim-markdown \
+	tpope/vim-surround \
+	vim-ruby/vim-ruby \
+	vim-scripts/JSON \
+	lukaszkorecki/vim-sparkup \
+	clones/vim-nginx
 
 run: pull sync link
 
@@ -22,4 +36,4 @@ init-modules:
 
 sync:
 	$(foreach repo,$(repos), \
-		cd _$(bundleDir)/$(notdir $(repo)) ; git pull -u origin master ; cd -;)
+		cd $(bundleDir)/$(notdir $(repo)) ; git pull -u origin master ; cd -;)
