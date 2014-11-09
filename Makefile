@@ -21,7 +21,8 @@ repos =  \
 	vim-scripts/JSON.vim \
 	lukaszkorecki/vim-sparkup \
 	clones/vim-nginx \
-	kchmck/vim-coffee-script
+	kchmck/vim-coffee-script \
+	fatih/vim-go
 
 run: pull sync link
 
