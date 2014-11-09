@@ -1,4 +1,4 @@
-bundleDir := _bundle
+bundleDir := bundle
 repos =  \
 	Shougo/vimproc.vim \
 	altercation/vim-colors-solarized \
@@ -18,9 +18,10 @@ repos =  \
 	tpope/vim-markdown \
 	tpope/vim-surround \
 	vim-ruby/vim-ruby \
-	vim-scripts/JSON \
+	vim-scripts/JSON.vim \
 	lukaszkorecki/vim-sparkup \
-	clones/vim-nginx
+	clones/vim-nginx \
+	kchmck/vim-coffee-script
 
 run: pull sync link
 
