@@ -92,6 +92,8 @@ if &term =~ '256color'
   set t_ut=
 endif
 
+colorscheme Tomorrow-Night
+
 " indent --------------------------------------------------------------------
 set softtabstop=2 shiftwidth=2 tabstop=2 expandtab
 

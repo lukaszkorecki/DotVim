@@ -22,7 +22,8 @@ repos =  \
 	clones/vim-nginx \
 	kchmck/vim-coffee-script \
 	fatih/vim-go \
-	effkay/argonaut.vim
+	effkay/argonaut.vim \
+	othree/html5.vim
 
 run: pull sync link
 
