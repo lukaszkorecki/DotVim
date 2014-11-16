@@ -21,7 +21,8 @@ repos =  \
 	lukaszkorecki/vim-sparkup \
 	clones/vim-nginx \
 	kchmck/vim-coffee-script \
-	fatih/vim-go
+	fatih/vim-go \
+	effkay/argonaut.vim
 
 run: pull sync link
 
