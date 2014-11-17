@@ -84,7 +84,7 @@ set spellsuggest=5
 " colors -------------------------------------------------------------------
 let &t_Co=256
 set background=dark
-colorscheme default
+colorscheme Tomorrow-Night
 if &term =~ '256color'
   " Disable Background Color Erase (BCE) so that color schemes
   " work properly when Vim is used inside tmux and GNU screen.
