@@ -6,7 +6,6 @@ repos =  \
 	godlygeek/tabular \
 	jgdavey/vim-blockle \
 	kana/vim-textobj-user \
-	kien/ctrlp.vim \
 	majutsushi/tagbar \
 	mattn/gist-vim \
 	mattn/webapi-vim \
