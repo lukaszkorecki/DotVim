@@ -172,9 +172,9 @@ autocmd Filetype ruby iabbr rq- require ''<ESC>i
 
 " ERB
 autocmd Filetype eruby iabbr rt+ <% woo %><ESC>Fw<ESC>"_ciw
-autocmd Filetype eruby iabbr rt- <% woo %><ESC>Fw<ESC>"_ciw
-autocmd Filetype eruby iabbr rt= <%= woo %><ESC>Fw<ESC>"_ciw
-autocmd Filetype eruby iabbr rtc <%# woo %><ESC>Fw<ESC>"_ciw
+autocmd Filetype eruby iabbr rt- <% woo%><ESC>Fw<ESC>"_ciw
+autocmd Filetype eruby iabbr rt= <%= woo%><ESC>Fw<ESC>"_ciw
+autocmd Filetype eruby iabbr rtc <%# woo%><ESC>Fw<ESC>"_ciw
 
 " Rspec yea
 autocmd Filetype ruby iabbr dsc- describe  do<CR>end<ESC>?describe<ESC>wi
