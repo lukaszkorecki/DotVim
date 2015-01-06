@@ -23,7 +23,8 @@ repos =  \
 	kchmck/vim-coffee-script \
 	fatih/vim-go \
 	effkay/argonaut.vim \
-	othree/html5.vim
+	othree/html5.vim \
+	lukaszkorecki/workflowish
 
 run: pull sync link
 
