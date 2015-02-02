@@ -41,3 +41,7 @@ init-modules:
 sync:
 	$(foreach repo,$(repos), \
 		cd $(bundleDir)/$(notdir $(repo)) ; git pull -u origin master ; cd -;)
+
+neo:
+	ln -s ~/.vim/vimrc ~/.nvimrc
+	ln -s ~/.vim ~/.nvim
