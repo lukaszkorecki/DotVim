@@ -140,6 +140,10 @@ noremap <s-tab> v<
 vnoremap <tab> >gv
 vnoremap <s-tab> <gv
 
+" Own commands ---------------------------------------------------------------
+cnoremap D e %:h
+cnoreabbrev E e
+
 " NETRW setttings ------------------------------------------------------------
 let g:netrw_banner=0
 
