@@ -68,9 +68,7 @@ set cursorline number
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 " right margin settings
-if version > 702
-  set colorcolumn=78
-endif
+set colorcolumn=78
 
 " general text layout stuff ------------------------------------------------
 " set line length for all files at 78
@@ -82,14 +80,15 @@ set spellsuggest=5
 
 
 " colors -------------------------------------------------------------------
-let &t_Co=256
-set background=dark
 if &term =~ '256color'
   " Disable Background Color Erase (BCE) so that color schemes
   " work properly when Vim is used inside tmux and GNU screen.
   " See also http://snk.tuxfamily.org/log/vim-256color-bce.html
   set t_ut=
 endif
+
+let &t_Co=256
+set background=dark
 
 colorscheme default
 
@@ -157,7 +156,7 @@ au BufNewFile,BufRead Procfile set filetype=yaml
 au BufNewFile,BufRead Puppetfile,Capfile,Gemfile,Guardfile,Rakefile,*.rake set filetype=ruby
 
 " reject! and responds_to? are methods in ruby
-autocmd FileType ruby setlocal iskeyword+=!,?,@
+autocmd FileType ruby setlocal iskeyword+=!,?,@,$
 
 " Abbreviations aka snippets
 autocmd Filetype ruby iabbr deb_ require 'pry'; binding.pry
@@ -174,7 +173,7 @@ autocmd Filetype ruby iabbr #- #{}<ESC>'_ci{
 autocmd Filetype ruby iabbr rq- require ''<ESC>i
 
 " ERB
-autocmd Filetype eruby iabbr rt+ <% woo %><ESC>Fw<ESC>"_ciw
+autocmd Filetype eruby iabbr rt+ <% woo%><ESC>Fw<ESC>"_ciw
 autocmd Filetype eruby iabbr rt- <% woo%><ESC>Fw<ESC>"_ciw
 autocmd Filetype eruby iabbr rt= <%= woo%><ESC>Fw<ESC>"_ciw
 autocmd Filetype eruby iabbr rtc <%# woo%><ESC>Fw<ESC>"_ciw
