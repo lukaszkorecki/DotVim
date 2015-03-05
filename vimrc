@@ -284,6 +284,9 @@ vnoremap <leader>B :call gitsurf#FileRange()<CR>
 let g:ctrlp_extensions = ['tag' ]
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
 
+" syntastic
+let g:syntastic_auto_loc_lis=1
+
 " tagbar
 nnoremap <leader>T :TagbarToggle<CR>
 
