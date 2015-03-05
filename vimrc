@@ -290,10 +290,6 @@ nnoremap <leader>T :TagbarToggle<CR>
 " fugitive
 noremap <leader>g :Ggrep <cword><CR>
 
-" syntastic
-let g:syntastic_auto_loc_lis=1
-let g:syntastic_enable_signs=1
-
 " tags
 set tags=./tags,tags,TAGS,ctags,./js.tags,./rb.tags,../project.tags
 
@@ -332,6 +328,7 @@ endf
 function! GenTags()
   exec "Gcd"
   call system("ctags -R . ")
+  echom "Tags generated!"
 endf
 map <leader>t :call GenTags()<cr>
 
