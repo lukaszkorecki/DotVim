@@ -140,8 +140,8 @@ vnoremap <tab> >gv
 vnoremap <s-tab> <gv
 
 " Own commands ---------------------------------------------------------------
-cnoremap D e %:h
 cnoreabbrev E e
+cnoreabbrev W w
 
 " NETRW setttings ------------------------------------------------------------
 let g:netrw_banner=0
@@ -343,7 +343,7 @@ nnoremap <leader>F :redraw!<cr>
 " command. See usage below.
 function! SelectaCommand(choice_command, selecta_args, vim_command)
   try
-    let selection = system(a:choice_command . " | selecta " . a:selecta_args)
+
   catch /Vim:Interrupt/
     " Swallow the ^C so that the redraw below happens; otherwise there will be
     " leftovers from selecta on the screen
