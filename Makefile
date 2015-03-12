@@ -24,7 +24,7 @@ repos =  \
 	fatih/vim-go \
 	effkay/argonaut.vim \
 	othree/html5.vim \
-	lukaszkorecki/workflowish
+	mustache/vim-mustache-handlebars
 
 run: pull sync link
 

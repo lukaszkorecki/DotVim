@@ -241,10 +241,14 @@ au BufNewFile,BufRead  *.cow set ft=sh
 " Puppet --------------------------------------------------------------------
 au BufNewFile,BufRead  *.pp set ft=puppet
 
+" Handlebars -----------------------------------------------------------------
+
+au BufNewFile,BufRead  *.hb,*.handlebars,*.hbs set ft=mustache
+
 " Javascript ----------------------------------------------------------------
 " json & javascript
 au BufNewFile,BufRead  *.json set ft=json
-let g:syntastic_javascript_jshint_conf = expand("~/.jshint.json")
+let g:syntastic_javascript_jshint_args = '--config ~/.jshint.json'
 
 autocmd Filetype javascript iabbr f- function(){}<ESC>F{a
 autocmd Filetype javascript iabbr fn- function(){}<ESC>F(i
