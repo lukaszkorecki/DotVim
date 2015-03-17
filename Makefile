@@ -27,19 +27,19 @@ repos =  \
 	mustache/vim-mustache-handlebars \
 	wakatime/vim-wakatime
 
-run: pull sync link
+run: pull init-modules sync link
 
 link:
 	ln -f -s ~/.vim/vimrc ~/.vimrc
 
-pull: sync
+pull:
 	git pull -r -u origin master
 
 init-modules:
 	$(foreach repo,$(repos), \
 	 	git clone git@github.com:$(repo).git $(bundleDir)/$(notdir $(repo)) ;)
 
-sync: init-modules
+sync:
 	$(foreach repo,$(repos), \
 		cd $(bundleDir)/$(notdir $(repo)) ; git pull -u origin master ; cd -;)
 
