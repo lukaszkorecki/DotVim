@@ -39,7 +39,7 @@ init-modules:
 	$(foreach repo,$(repos), \
 	 	git clone git@github.com:$(repo).git $(bundleDir)/$(notdir $(repo)) ;)
 
-sync:
+sync: init-modules
 	$(foreach repo,$(repos), \
 		cd $(bundleDir)/$(notdir $(repo)) ; git pull -u origin master ; cd -;)
 
