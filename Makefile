@@ -37,7 +37,7 @@ pull:
 
 init-modules:
 	$(foreach repo,$(repos), \
-	 	git clone git@github.com:$(repo).git $(bundleDir)/$(notdir $(repo)) ;)
+	 	git clone git@github.com:$(repo).git $(bundleDir)/$(notdir $(repo)) || true  ;)
 
 sync:
 	$(foreach repo,$(repos), \
