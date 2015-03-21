@@ -242,7 +242,7 @@ au BufNewFile,BufRead  *.pp set ft=puppet
 
 " Handlebars -----------------------------------------------------------------
 
-au BufNewFile,BufRead  *.hb,*.handlebars,*.hbs set ft=mustache
+au BufNewFile,BufRead  *.hb,*.handlebars,*.hbs,*.mustache set ft=mustache
 
 " Javascript ----------------------------------------------------------------
 " json & javascript
