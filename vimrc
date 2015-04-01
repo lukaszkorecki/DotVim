@@ -90,7 +90,7 @@ endif
 let &t_Co=256
 set background=dark
 
-colorscheme grb256
+colorscheme desert
 
 " indent --------------------------------------------------------------------
 set softtabstop=2 shiftwidth=2 tabstop=2 expandtab
