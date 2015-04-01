@@ -27,6 +27,8 @@ repos =  \
 	mustache/vim-mustache-handlebars \
 	wakatime/vim-wakatime
 
+.PHONY: run link pull init-modules sync neo
+
 run: pull init-modules sync link
 
 link:
@@ -36,7 +38,7 @@ pull:
 	git pull -r -u origin master
 
 init-modules:
-	mkdir $(bundleDir)
+	mkdir -p $(bundleDir)
 	$(foreach repo,$(repos), \
 	 	git clone git@github.com:$(repo).git $(bundleDir)/$(notdir $(repo)) || true  ;)
 
