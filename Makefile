@@ -24,8 +24,7 @@ repos =  \
 	fatih/vim-go \
 	effkay/argonaut.vim \
 	othree/html5.vim \
-	mustache/vim-mustache-handlebars \
-	wakatime/vim-wakatime
+	mustache/vim-mustache-handlebars
 
 .PHONY: run link pull init-modules sync neo
 
