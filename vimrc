@@ -218,6 +218,18 @@ endf
 
 au Filetype ruby map <leader>f :silent call RubocopFix()<cr>
 
+function! JSFmtFix()
+  w!
+  set autoread
+  silent exec "! jsfmt -w ".expand('%')
+  redraw!
+  set noautoread
+  e!
+  w
+endf
+
+au Filetype javascript map <leader>f :silent call JSFmtFix()<cr>
+
 " make rspec stuff part of ruby syntax
 autocmd BufNewFile,BufRead *_spec.rb syn keyword ruby describe
       \ context
@@ -251,8 +263,8 @@ let g:syntastic_javascript_jshint_args = '--config ~/.jshint.json'
 
 autocmd Filetype javascript iabbr f- function(){}<ESC>F{a
 autocmd Filetype javascript iabbr fn- function(){}<ESC>F(i
-autocmd Filetype javascript iabbr cl- console.log('');<ESC>F'i
-autocmd Filetype javascript iabbr ci- console.info('');<ESC>F'i
+autocmd Filetype javascript iabbr cl- console.log('');<ESC>F'a
+autocmd Filetype javascript iabbr ci- console.info('');<ESC>F'
 autocmd Filetype javascript iabbr deb_ debugger;
 
 " coffeescript
