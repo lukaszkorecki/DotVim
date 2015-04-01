@@ -36,6 +36,7 @@ pull:
 	git pull -r -u origin master
 
 init-modules:
+	mkdir $(bundleDir)
 	$(foreach repo,$(repos), \
 	 	git clone git@github.com:$(repo).git $(bundleDir)/$(notdir $(repo)) || true  ;)
 
