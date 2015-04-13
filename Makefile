@@ -1,14 +1,9 @@
 bundleDir := bundle
 repos =  \
 	Shougo/vimproc.vim \
-	altercation/vim-colors-solarized \
-	altercation/vim-colors-solarized \
 	godlygeek/tabular \
 	jgdavey/vim-blockle \
 	kana/vim-textobj-user \
-	majutsushi/tagbar \
-	mattn/gist-vim \
-	mattn/webapi-vim \
 	nelstrom/vim-textobj-rubyblock \
 	pangloss/vim-javascript \
 	rodjek/vim-puppet \
@@ -18,13 +13,12 @@ repos =  \
 	tpope/vim-surround \
 	vim-ruby/vim-ruby \
 	vim-scripts/JSON.vim \
-	lukaszkorecki/vim-sparkup \
 	clones/vim-nginx \
 	kchmck/vim-coffee-script \
 	fatih/vim-go \
-	effkay/argonaut.vim \
 	othree/html5.vim \
-	mustache/vim-mustache-handlebars
+	mustache/vim-mustache-handlebars \
+	ludovicchabant/vim-gutentags
 
 .PHONY: run link pull init-modules sync neo
 
