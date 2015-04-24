@@ -18,7 +18,10 @@ repos =  \
 	fatih/vim-go \
 	othree/html5.vim \
 	mustache/vim-mustache-handlebars \
-	ludovicchabant/vim-gutentags
+	ludovicchabant/vim-gutentags \
+	tpope/vim-eunuch \
+	mattn/emmet-vim \
+	# foo
 
 .PHONY: run link pull init-modules sync neo
 
