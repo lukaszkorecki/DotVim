@@ -21,6 +21,9 @@ repos =  \
 	ludovicchabant/vim-gutentags \
 	tpope/vim-eunuch \
 	mattn/emmet-vim \
+	ingydotnet/yaml-vim \
+	chase/vim-ansible-yaml \
+	Glench/Vim-Jinja2-Syntax
 	# foo
 
 .PHONY: run link pull init-modules sync neo
