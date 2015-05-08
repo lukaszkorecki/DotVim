@@ -23,12 +23,13 @@ repos =  \
 	mattn/emmet-vim \
 	ingydotnet/yaml-vim \
 	chase/vim-ansible-yaml \
-	Glench/Vim-Jinja2-Syntax
+	Glench/Vim-Jinja2-Syntax \
+	kien/ctrlp.vim  \
 	# foo
 
 .PHONY: run link pull init-modules sync neo
 
-run: pull init-modules sync link
+run: pull init-modules sync link neo
 
 link:
 	ln -f -s ~/.vim/vimrc ~/.vimrc
@@ -46,5 +47,5 @@ sync:
 		cd $(bundleDir)/$(notdir $(repo)) ; git pull -u origin master ; cd -;)
 
 neo:
-	ln -s ~/.vim/vimrc ~/.nvimrc
+	ln -s ~/.vim/nvimrc ~/.nvimrc
 	ln -s ~/.vim ~/.nvim
