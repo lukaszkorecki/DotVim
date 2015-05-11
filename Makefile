@@ -24,7 +24,6 @@ repos =  \
 	ingydotnet/yaml-vim \
 	chase/vim-ansible-yaml \
 	Glench/Vim-Jinja2-Syntax \
-	kien/ctrlp.vim  \
 	# foo
 
 .PHONY: run link pull init-modules sync neo
