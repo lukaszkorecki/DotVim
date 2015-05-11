@@ -46,5 +46,5 @@ sync:
 		cd $(bundleDir)/$(notdir $(repo)) ; git pull -u origin master ; cd -;)
 
 neo:
-	ln -s ~/.vim/nvimrc ~/.nvimrc
-	ln -s ~/.vim ~/.nvim
+	ln -f -s ~/.vim/nvimrc ~/.nvimrc
+	ln -f -s ~/.vim ~/.nvim
