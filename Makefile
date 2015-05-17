@@ -23,6 +23,7 @@ repos =  \
 	chase/vim-ansible-yaml \
 	Glench/Vim-Jinja2-Syntax \
 	guns/vim-clojure-highlight \
+	guns/vim-clojure-static
 # MODULE-LIST-END
 
 .PHONY: run link pull init-modules sync neo clean
