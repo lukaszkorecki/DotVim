@@ -1,0 +1,41 @@
+#!/usr/bin/env ruby
+
+require 'logger'
+require 'fileutils'
+
+log = Logger.new(STDOUT)
+
+make = File.read './Makefile'
+modules = make
+          .split('MODULE-LIST')[1]
+          .split
+          .select { |l| l =~ %r{/} }
+          .map { |l| File.basename l }
+
+bundled = Dir['bundle/*']
+          .select { |d| File.directory? d }
+          .map { |l| File.basename l }
+
+extra_modules = bundled - modules
+missing = modules - bundled
+
+log.info "Extras: #{extra_modules}"
+log.warn "Missing: #{missing}"
+
+if extra_modules.empty? && missing.empty?
+  log.error 'nothing to do'
+  exit 0
+end
+
+unless extra_modules.empty?
+  log.warn 'Removing extra modules!'
+  extra_modules.map { |m| FileUtils.rm_rf "bundle/#{m}" }
+end
+
+unless missing.empty?
+  log.info 'Downloading missing modules'
+
+  exec 'make init-modules'
+end
+
+log.info 'Done'

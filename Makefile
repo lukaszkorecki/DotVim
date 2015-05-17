@@ -1,12 +1,11 @@
 bundleDir := bundle
+# MODULE-LIST-START
 repos =  \
-	Shougo/vimproc.vim \
 	godlygeek/tabular \
 	jgdavey/vim-blockle \
 	kana/vim-textobj-user \
 	nelstrom/vim-textobj-rubyblock \
 	pangloss/vim-javascript \
-	rodjek/vim-puppet \
 	scrooloose/syntastic \
 	tpope/vim-fugitive \
 	tpope/vim-markdown \
@@ -14,7 +13,6 @@ repos =  \
 	vim-ruby/vim-ruby \
 	vim-scripts/JSON.vim \
 	clones/vim-nginx \
-	kchmck/vim-coffee-script \
 	fatih/vim-go \
 	othree/html5.vim \
 	mustache/vim-mustache-handlebars \
@@ -24,14 +22,18 @@ repos =  \
 	ingydotnet/yaml-vim \
 	chase/vim-ansible-yaml \
 	Glench/Vim-Jinja2-Syntax \
-	# foo
+	guns/vim-clojure-highlight \
+# MODULE-LIST-END
 
-.PHONY: run link pull init-modules sync neo
+.PHONY: run link pull init-modules sync neo clean
 
 run: pull init-modules sync link neo
 
 link:
 	ln -f -s ~/.vim/vimrc ~/.vimrc
+
+clean:
+	ruby ./script/cleanup_modules
 
 pull:
 	git pull -r -u origin master
