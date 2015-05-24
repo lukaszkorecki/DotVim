@@ -22,6 +22,7 @@ repos =  \
 	ingydotnet/yaml-vim \
 	chase/vim-ansible-yaml \
 	Glench/Vim-Jinja2-Syntax \
+	tpope/vim-dispatch \
 # MODULE-LIST-END
 
 .PHONY: run link pull init-modules sync neo clean
