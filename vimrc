@@ -162,15 +162,26 @@ autocmd FileType ruby setlocal iskeyword+=!,?,@,$
 autocmd Filetype ruby iabbr deb_ require 'pry'; binding.pry
 
 " Ruby
+" constructor
 autocmd Filetype ruby iabbr init- def initialize<CR>end<ESC>?initialize<ESC>$a
+" class body
 autocmd Filetype ruby iabbr cls- class<CR>end<ESC>?class<ESC>$a
+" module
 autocmd Filetype ruby iabbr mod- module<CR>end<ESC>?module<ESC>$a
+" def
 autocmd Filetype ruby iabbr d= def<CR>end<ESC>?def<ESC>$a
+" block, no args
 autocmd Filetype ruby iabbr d_ do<CR>end<ESC>O
+" block with args
 autocmd Filetype ruby iabbr d- do \|\|<CR>end<ESC>k$i
+" inline block with args
 autocmd Filetype ruby iabbr {- { \|A\| }<ESC>FA"_xi
-autocmd Filetype ruby iabbr #- #{}<ESC>'_ci{
+" str interpolation
+autocmd Filetype ruby iabbr #- #{}<ESC>"_ci{
+" require
 autocmd Filetype ruby iabbr rq- require ''<ESC>i
+" AS TestCase class
+autocmd Filetype ruby iabbr tcls- class XXX < ActiveSupport::TestCase<CR>end<ESC>?XXX<ESC>"_ciw
 
 " ERB
 autocmd Filetype eruby iabbr rt+ <% woo%><ESC>Fw<ESC>"_ciw
