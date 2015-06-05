@@ -90,7 +90,7 @@ endif
 let &t_Co=256
 set background=dark
 
-colorscheme default "grb256
+colorscheme dracula
 
 " indent --------------------------------------------------------------------
 set softtabstop=2 shiftwidth=2 tabstop=2 expandtab
@@ -265,7 +265,7 @@ au BufNewFile,BufRead  *.pp set ft=puppet
 
 " Handlebars -----------------------------------------------------------------
 
-au BufNewFile,BufRead  *.hb,*.handlebars,*.hbs,*.mustache set ft=mustache
+au BufNewFile,BufRead  *.hb,*.handlebars,*.hbs,*.mustache set ft=html.mustache
 
 " Javascript ----------------------------------------------------------------
 " json & javascript
