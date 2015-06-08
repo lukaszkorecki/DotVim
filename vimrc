@@ -89,8 +89,10 @@ endif
 
 let &t_Co=256
 set background=dark
-
 colorscheme dracula
+" Preserve terminal background colo
+highlight Normal ctermbg=NONE
+highlight nonText ctermbg=NONE
 
 " indent --------------------------------------------------------------------
 set softtabstop=2 shiftwidth=2 tabstop=2 expandtab
@@ -275,7 +277,7 @@ let g:syntastic_javascript_jshint_args = '--config ~/.jshint.json'
 autocmd Filetype javascript iabbr f- function(){}<ESC>F{a
 autocmd Filetype javascript iabbr fn- function(){}<ESC>F(i
 autocmd Filetype javascript iabbr cl- console.log('');<ESC>F'a
-autocmd Filetype javascript iabbr ci- console.info('');<ESC>F'
+autocmd Filetype javascript iabbr ci- console.info('');<ESC>F'i
 autocmd Filetype javascript iabbr deb_ debugger;
 
 " coffeescript
