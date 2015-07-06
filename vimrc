@@ -204,14 +204,14 @@ autocmd Filetype ruby iabbr test- test '' do<CR>end<ESC>?''<ESC>a
 function! RspecInPane()
   exec "Gcd"
   let f = expand("%")
-  let cmd = "tmux split-window 'bundle exec rspec ". shellescape(f) . " || bash '"
+  let cmd = "tmux split-window -h 'bundle exec rspec ". shellescape(f) . " || bash '"
   silent exec "! ".cmd
 endf
 
 
 function! TestUnitFile()
   exec "Gcd"
-  silent exec "! tmux split-window 'tu ".expand('%'). " || bash'"
+  silent exec "! tmux split-window -h 'tu ".expand('%'). " || bash'"
 endf
 
 au Filetype ruby map <leader>r :silent call RspecInPane()<cr>
@@ -385,3 +385,9 @@ endfunction
 " Find all files in all non-dot directories starting in the working directory.
 " Fuzzy select one of those. Open the selected file with :e.
 nnoremap <C-p> :call SelectaCommand("git ls-files", "", ":e")<cr>
+
+
+if version >= 700
+  au InsertEnter * hi StatusLine ctermfg=235 ctermbg=2
+  au InsertLeave * hi StatusLine ctermbg=240 ctermfg=12
+endif
