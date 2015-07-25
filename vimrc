@@ -89,7 +89,7 @@ endif
 
 let &t_Co=256
 set background=dark
-colorscheme dracula
+colorscheme default
 " Preserve terminal background colo
 highlight Normal ctermbg=NONE
 highlight nonText ctermbg=NONE
@@ -242,6 +242,18 @@ function! JSFmtFix()
 endf
 
 au Filetype javascript map <leader>f :silent call JSFmtFix()<cr>
+
+function! PyFix()
+  w!
+  set autoread
+  silent exec "! autopep8 -i -a ".expand('%')
+  redraw!
+  set noautoread
+  e!
+  w
+endf
+
+au Filetype python map <leader>f :silent call PyFix()<cr>
 
 " make rspec stuff part of ruby syntax
 autocmd BufNewFile,BufRead *_spec.rb syn keyword ruby describe
