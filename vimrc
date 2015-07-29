@@ -153,6 +153,9 @@ let g:netrw_banner=0
 
 au BufNewFile,BufRead Procfile set filetype=yaml
 
+" Terraform ------------------------------------------------------------------
+au BufNewFile,BufRead *.tf,*tfv,*.tfstate set filetype=terraform
+
 " Ruby -----------------------------------------------------------------------
 " non ruby files which are ruby
 au BufNewFile,BufRead Puppetfile,Capfile,Gemfile,Guardfile,Rakefile,*.rake set filetype=ruby
