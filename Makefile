@@ -25,6 +25,7 @@ repos =  \
 	tpope/vim-dispatch \
 	leafgarland/typescript-vim \
 	markcornick/vim-terraform \
+	benmills/vimux \
 # MODULE-LIST-END
 
 .PHONY: run link pull init-modules sync neo clean
