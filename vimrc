@@ -89,7 +89,7 @@ endif
 
 let &t_Co=256
 set background=dark
-colorscheme default
+colorscheme vimbrant
 " Preserve terminal background colo
 highlight Normal ctermbg=NONE
 highlight nonText ctermbg=NONE
