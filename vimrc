@@ -258,6 +258,19 @@ endf
 
 au Filetype python map <leader>f :silent call PyFix()<cr>
 
+
+function! CljFix()
+  w!
+  set autoread
+  silent exec "! lein cljfmt fix ".expand('%')
+  redraw!
+  set noautoread
+  e!
+  w
+endf
+
+au Filetype clojure map <leader>f :silent call CljFix()<cr>
+
 " make rspec stuff part of ruby syntax
 autocmd BufNewFile,BufRead *_spec.rb syn keyword ruby describe
       \ context
