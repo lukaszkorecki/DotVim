@@ -1,6 +1,8 @@
 bundleDir := bundle
 # MODULE-LIST-START
 repos =  \
+	mtth/scratch.vim \
+	epeli/slimux \
 	godlygeek/tabular \
 	jgdavey/vim-blockle \
 	kana/vim-textobj-user \
@@ -26,7 +28,6 @@ repos =  \
 	leafgarland/typescript-vim \
 	markcornick/vim-terraform \
 	benmills/vimux \
-	jpalardy/vim-slime
 # MODULE-LIST-END
 
 .PHONY: run link pull init-modules sync neo clean

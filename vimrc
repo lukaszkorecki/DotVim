@@ -336,6 +336,10 @@ au BufNewFile,BufRead *.scm,*.clj set lisp
 nnoremap <leader>B :call gitsurf#File()<CR>
 vnoremap <leader>B :call gitsurf#FileRange()<CR>
 
+" slimux
+map <C-c><C-c> :SlimuxREPLSendLine<CR>
+vmap <C-c><C-c> :SlimuxREPLSendSelection<CR>
+
 " ctrl-p
 let g:ctrlp_extensions = ['tag' ]
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
