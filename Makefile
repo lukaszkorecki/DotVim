@@ -1,6 +1,7 @@
 bundleDir := bundle
 # MODULE-LIST-START
 repos =  \
+  luochen1990/rainbow \
 	mtth/scratch.vim \
 	epeli/slimux \
 	godlygeek/tabular \

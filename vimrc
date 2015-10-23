@@ -286,6 +286,11 @@ autocmd BufNewFile,BufRead *_spec.rb syn keyword ruby describe
       \ shared_context
       \ let
 
+" add clojure.test and couple of core namespaces to syntax highlighter
+autocmd BufNewFile,BufRead *_test.clj syn keyword clojure clojure.test
+      \ deftest
+      \ testing
+      \ is
 
 " Cowsay --------------------------------------------------------------------
 au BufNewFile,BufRead  *.cow set ft=sh
@@ -332,6 +337,8 @@ autocmd FileType scss setlocal iskeyword+=-,$,@
 au BufNewFile,BufRead *.scm,*.clj set lisp
 
 " Plugins settings ----------------------------------------------------------
+let g:rainbow_active =  1
+
 " git-browse mappings
 nnoremap <leader>B :call gitsurf#File()<CR>
 vnoremap <leader>B :call gitsurf#FileRange()<CR>
